@@ -18,10 +18,12 @@ export const defineStore = (initialValue, { get, ...rawActions } = {}) => {
   }
 
   const set = (actions.set = value => {
+    if (currentValue === value) return value
     currentValue = value
     for (const sub of subscribers) {
       sub(value)
     }
+    return value
   })
 
   if (rawActions.reset === undefined) {
