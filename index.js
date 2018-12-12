@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
+const { useState, useEffect } = require('react')
 
 const updateObject = (props, state) => ({ ...state, ...props })
 const neverChange = []
 
-export const defineStore = (initialValue, { get, ...rawActions } = {}) => {
+const defineStore = (initialValue, { get, ...rawActions } = {}) => {
   let currentValue = initialValue
   const subscribers = new Set()
   const actions = {}
@@ -46,3 +46,5 @@ export const defineStore = (initialValue, { get, ...rawActions } = {}) => {
 
   return actions
 }
+
+module.exports = { defineStore }
