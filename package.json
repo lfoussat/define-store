@@ -1,6 +1,6 @@
 {
   "name": "define-store",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hook for global state management",
   "main": "index.js",
   "scripts": {
