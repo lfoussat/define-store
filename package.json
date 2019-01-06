@@ -2,12 +2,14 @@
   "name": "define-store",
   "version": "1.0.1",
   "description": "React hook for global state management",
-  "main": "index.js",
+  "main": "index.build.js",
+  "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "schwarzy ."
   },
   "peerDependencies": {
-    "react": ">= 16.7.0"
+    "react": ">= 16.7.0-alpha.2"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/lfoussat/define-store/issues"
   },
-  "homepage": "https://github.com/lfoussat/define-store#readme"
+  "homepage": "https://github.com/lfoussat/define-store#readme",
+  "dependencies": {
+    "schwarzy": "0.0.3"
+  }
 }
