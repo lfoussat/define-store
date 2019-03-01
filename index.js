@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const updateObject = (props, state) => ({ ...state, ...props })
 const neverChange = []
@@ -10,10 +10,12 @@ export const defineStore = (initialValue, { get, ...rawActions } = {}) => {
 
   actions.use = () => {
     const [value, setValue] = useState(currentValue)
-    useEffect(() => {
+    const ref = useRef()
+    if (!ref.current) {
+      ref.current = setValue
       subscribers.add(setValue)
-      return () => subscribers.delete(setValue)
-    }, neverChange)
+    }
+    useEffect(() => () => subscribers.delete(setValue), neverChange)
     return value
   }
 
